@@ -1,0 +1,172 @@
+body {
+    background-color: rgb(233, 233, 233);
+}
+
+.full {
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: cornflowerblue;
+}
+
+.container {
+    border-radius: 10px;
+    width: 33%;
+    margin-top: 10em;
+    height: fit-content;
+    background-color: #232528;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 25px 20px 30px 20px;
+    box-sizing: border-box;
+}
+
+.container .logo {
+    width: 100%;
+    text-align: center;
+}
+
+.container .logo img {
+    width: 50px;
+}
+
+.container .loginform {
+    text-align: center;
+    width: 100%;
+}
+
+.loginform input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.tm {
+    font-size: 20px;
+    font-family: Freemono;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-login {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: none;
+    font-family: serif, sans-serif;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.empty {
+    margin-bottom: 20px;
+}
+
+.thirdparty-signin .google {
+    background-color: #ff7168;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.thirdparty-signin .google:hover {
+    background-color: #ef645b;
+    transition: 400ms;
+}
+
+.thirdparty-signin .facebook {
+    background-color: #0165b9;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.thirdparty-signin .facebook:hover {
+    background-color: #035ba4;
+    transition: 400ms;
+}
+
+.thirdparty-signin .phone {
+    background-color: #008c8a;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.thirdparty-signin .phone:hover {
+    background: #057c7a;
+    transition: 400ms;
+}
+
+.container-signup {
+    width: 100%;
+    color: white;
+    overflow: auto;
+}
+
+.container-signup .left {
+    float: left;
+    width: 32%;
+    margin-right: 11.3px;
+}
+.container-signup .left:last-child {
+    float: right;
+    margin-right: 0;
+}
+
+.container-signup .left select {
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+    border: solid black 1px;
+    background-color: white;
+}
+
+.container-signup-profile .left-profile{
+    float: left;
+    width: 33.33%;
+}
+
+.container-signup-profile .left-profile:last-child {
+    float: right;
+}
+.container-signup-profile .left-profile select {
+    width: 100%;
+    border: solid black 1px;
+    height: 40px;
+    border-radius: 5px;
+}

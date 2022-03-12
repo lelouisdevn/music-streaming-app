@@ -1,0 +1,65 @@
+.col-5 ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0 20px;
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.head1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.foot1 {
+    margin-top: 30px;
+}
+
+.foot1 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.foot1 ul li {
+    margin: 10px 0;
+    font-size: 17px;
+}
+
+.foot1 p {
+    font-size: 16px;
+    color: darkgrey;
+}
+
+.foot1 i {
+    font-size: 50px;
+    padding: 10px 10px;
+}
+
+.last {
+    text-align: right;
+}
+
+.btn-play {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 45px;
+    background-color: #00908a;
+    border-radius: 10px;
+}
+.btn-play:hover {
+    background-color: #007371;
+    cursor: pointer;
+    transition: 400ms;
+}
+.foot-a a{
+    padding-right: 20px;
+    text-decoration: none;
+    color: grey;
+
+}

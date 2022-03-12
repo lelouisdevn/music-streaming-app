@@ -1,0 +1,246 @@
+.items a {
+    text-decoration: none;
+}
+.items ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+
+}
+
+.search input {
+    height: 35px;
+    width: 100%;
+    border: none;
+    padding: 0 5px;
+    color: lighgrey;
+    border-radius: 5px;
+}
+.sidebar-play {
+    border-right: solid white 2px;
+    color: lightgrey;
+    font-size: 18px;
+    padding: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.sidebar-play a {
+    color: lightgrey;
+    font-family: sans-serif;
+}
+.sidebar-play div {
+    margin: 7px 0;
+
+}
+.content {
+    position: relative;
+    left: 2%;
+    margin: 10px 0;
+}
+.content-genre {
+    margin-bottom: 20px;
+}
+.content .content-genre div {
+    width: 100%;
+    height: 232.5px;
+    padding: 10px 20px;
+    margin: 10px 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 10px;
+}
+.content .song {
+    margin-bottom: 30px;
+}
+.content .song div {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 25px;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    height: 41px;
+    overflow-y: hidden;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+}
+.songs{
+  color: white;
+  font-size: 35px;
+}
+.artist {
+  font-size: 20px;
+  color: white;
+}
+.media-audio{
+  margin: 0 0 20px 0;
+}
+.lyrics {
+  background-color: white;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.bg-song {
+  width: 90%;
+  margin: 20px 0;
+  height: 200px;
+}
+
+#start, #end {
+  color: white;
+  font-size: 18px;
+}
+#start {
+  text-align: left;
+}
+
+#back, #next, #play, #abc, #off, #lsong, #dsong, #addplaylist{
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  margin: auto 0;
+}
+#play {
+  font-size: 50px;
+}
+.song-genre {
+  height: 50px;
+  background-color: whitesmoke;
+  width: 93%;
+  line-height: 50px;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin: 5px 0;
+
+}
+.song-genre:first-child{
+  margin-top: 30px;
+}
+.content-genre a {
+  color; white;
+  text-decoration: none;
+}
+.currentplay {
+  border-radius: 5px;
+  background-color: grey;
+  margin: 10px 25px;
+  color: white;
+}
+.currentplay a {
+  text-decoration: none;
+}
+.currentplay .currentpname {
+  text-align: center;
+  margin: auto 0;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+.profile img {
+      margin-bottom: 30px;
+      border-radius: 50%;
+    }
+    .profile input {
+      width: 100%;
+      height: 40px;
+      border: black solid 1px;
+      color: 20px;
+      border-radius: 5px;
+      padding: 5px;
+      background: whitesmoke;
+    }
+    .profile label {
+      text-align: left;
+      color: blacks;
+      font-weight: bold;
+    }
+    .profile .formm {
+      background-color: white;
+      border-radius: 10px;
+      padding-bottom: 10px;
+    }
+    .profile .formm div{
+      margin: 10px 0;
+      text-align: left;
+      color: black;
+    }
+
+    .parent {
+      position: relative;
+      display: inline-block;
+      top: 0;
+    }
+    .parent > .child{
+      display: none;
+    }
+    .child {
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      padding: 10px;
+      border: black solid 1px;
+      font-family: sans-serif;
+      border-radius: 5px;
+      position: absolute;
+      right: 0;
+      margin: 0;
+    }
+    .child a {
+      margin: 0;
+      color: black;
+      text-decoration: none;
+    }
+    .child p {
+      margin: 0;
+      padding: 5px 0;
+    }
+    .parent:hover > .child {
+      display: block;
+      cursor: pointer;
+      position:absolute;
+      width: 170px;
+      transition: 400ms;
+    }
+
+.seemore {
+   height: 400px;
+   overflow-y: hidden;
+   border-radius: 5px 5px 0 0;
+}
+
+.seemore, .seeless:hover {
+  cursor: pointer;
+}
+.seeless {
+  border-radius: 5px 5px 0 0;
+}
+
+#clickseemore:hover{
+  cursor: pointer;
+}
+
+.library {
+  font-size: 30px;
+  text-align: right;
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+}
+
+.fa:hover {
+  cursor: pointer;
+}
+
+.play-genre-song{
+  text-align: center;
+  font-size: 35px;
+  padding-top: 5px;
+}

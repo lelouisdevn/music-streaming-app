@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.avatar {
+    text-align: center;
+    height: auto;
+}
+.avatar div {
+    margin: 20px 0;
+}
+.avatar img {
+    width: 75px;
+}
+.avatar .manager {
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.avatar .manager div {
+    height: 40px;
+    line-height: 40px;
+    color: white;
+}
+.avatar .manager div:hover {
+    background-color: #195E9B;
+    border-radius: 5px;
+    transition: 400ms;
+}
+table {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    /* background-color: lightgrey; */
+}
+table tr:first-child {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: cornflowerblue;
+}
+.content-admin .title {
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+}
+.content-admin .add-btn{
+    height: 35px;
+    line-height: 35px;
+    background-color: crimson;
+    border-radius: 5px;
+    width: 50px;
+    color: white;
+}
+.content-admin .add-btn a:hover {
+    color: white;
+    text-decoration: none;
+}
+.content-admin .add-btn:hover {
+    color: white;
+    background-color: tomato;
+    transition: 400ms;
+}
+.form-admin {
+  display: block;
+  text-align: left;
+}
+.form-admin label {
+  text-align: left;
+  font-size: 18px;
+  width: 100%;
+}
+.form-admin input{
+  margin: 5px 0 25px 0;
+  width: 100%;
+}
+.form-admin-btn {
+  border: none;
+  padding: 7px 30px;
+  border-radius: 5px;
+  background: #004d90;
+  color: white;
+}
+
+.form-admin-btn:hover {
+  background-color: cornflowerblue;
+  transition: 400ms;
+}
+.form-admin select {
+  width: 100%;
+  height: 30px;
+  margin: 7px 0 20px 0;
+}
+
+table tr td {
+    border: solid 1px grey;
+}
