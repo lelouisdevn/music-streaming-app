@@ -120,7 +120,7 @@
                     </div>
                 </a>
                 <div style="border-bottom: solid whitesmoke 1px;"></div>
-                <a id="addpl">
+                <!-- <a id="addpl">
                     <div>
                         <i class="fa fa-plus-circle">
                             <span style="font-family: sans-serif;"> Create playlist</span>
@@ -129,18 +129,8 @@
                 </a>
                 <a id="inputf">
 
-                </a>
-                <div id="lists">
-                    <?php
-                        $Playlist = DB::table('playlist')->where('UserId', Session::get('UserId'))->get();
-                        foreach ($Playlist as $key => $value) {
-                    ?>
-                    <a href="{{url('/user/playlist/'.$value->PlayId)}}" style="display: block;">{{ $value->PlayName }}</a>
-                    <?php
-                        }
-                    ?>
-                </div>
-                <div style="border-bottom: solid whitesmoke 1px;"></div>
+                </a> -->
+                
                 <a href="{{ url('/user/logout') }}"><div><i class="fa fa-sign-out">
                   <span style="font-family: sans-serif; "> Log out</span>
                 </i></div></a>

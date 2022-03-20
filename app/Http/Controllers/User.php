@@ -647,7 +647,7 @@ class User extends Controller
       $UserId = Session::get('UserId');
       $data = array();
       $data['UserName'] = $r->name;
-      $data['UserDOB'] = $r->day."/".$r->month."/".$r->year;
+      $data['UserDOB'] = $r->month."/".$r->day."/".$r->year;
       //$data['SDOB'] = $request->day.".".$request->month.".".$request->year;
 
       // $avt = $r->file('file-avt');

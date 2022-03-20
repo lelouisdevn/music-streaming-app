@@ -6,6 +6,7 @@
         <tr>
             <td>ID</td>
             <td>Member Name</td>
+            <td>Song</td>
             <td>Comment</td>
             <td>Time</td>
             <td>Edit/Delete</td>
@@ -14,12 +15,13 @@
         <tr class="albumQ">
             <td>{{ $c->CommentId }}</td>
             <td>{{ $c->UserName }}</td>
-            <td style="width: 50%;">{{ $c->CommentContent }}</td>
+            <td>{{ $c->SongName }}</td>
+            <td style="width: 30%;">{{ $c->CommentContent }}</td>
             <td>{{ $c->CommentTime }}</td>
             <td>
-              <a href="{{url('/admin/comment/delete/'.$c->CommentId)}}"
-                 onclick="return confirm('Are you sure you want to delete this comment?')">
-                <i class="fa fa-trash" style="color: crimson; font-size: 20px;"></i></a>
+                <a href="{{url('/admin/comment/delete/'.$c->CommentId)}}" onclick="return confirm('Are you sure you want to delete this comment?')">
+                    <i class="fa fa-trash" style="color: crimson; font-size: 20px;"></i>
+                </a>
             </td>
         </tr>
         @endforeach

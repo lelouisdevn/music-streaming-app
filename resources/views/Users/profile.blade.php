@@ -46,6 +46,14 @@
                         <div class="left-profile">
                             <p style="text-align: left; font-size: 18px; margin-bottom: 5px; color: black; font-weight: bold;">Day</p>
                             <select name="day" id="">
+                              <?php
+                                $data = DB::table('user')->where('UserId', Session::get('UserId'))->first();
+                                $date = $data->UserDOB;
+                                $time = strtotime($date);
+                                $day = date('d', $time);
+
+                                echo "<option>$day</option>";
+                              ?>
                                 <script language="javascript" type="text/javascript">
                                     for (var d = 1; d <= 31; d++) {
                                         document.write("<option>" + d + "</option>");
@@ -56,6 +64,50 @@
                         <div class="left-profile">
                             <p style="text-align: left; font-size: 18px; margin-bottom: 5px; color: black; font-weight: bold;">Month</p>
                             <select class="light" name="month" required>
+                              <?php
+                                
+                                $month = date('F', $time);
+                                $value = 0;
+                                switch ($month){
+                                  case 'January':
+                                    $value = 1;
+                                    break;
+                                  case 'February':
+                                    $value = 2;
+                                    break;
+                                  case 'March':
+                                    $value = 3;
+                                    break;
+                                  case 'April':
+                                    $value = 4;
+                                    break;
+                                  case 'May':
+                                    $value = 5;
+                                    break;
+                                  case 'June':
+                                    $value = 6;
+                                    break;
+                                  case 'July':
+                                    $value = 7;
+                                    break;
+                                  case 'August':
+                                    $value = 8;
+                                    break;
+                                  case 'September':
+                                    $value = 9;
+                                    break;
+                                  case 'October':
+                                    $value = 10;
+                                    break;
+                                  case 'November':
+                                    $value = 11;
+                                    break;
+                                  case 'December':
+                                    $value = 12;
+                                    break;
+                                }
+                                echo "<option value=".$value.">$month</option>";
+                              ?>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
                                 <option value="3">March</option>
@@ -73,6 +125,13 @@
                         <div class="left-profile">
                             <p style="text-align: left; font-size: 18px; margin-bottom: 5px; color: black; font-weight: bold;">Year</p>
                             <select name="year" required>
+                              <?php
+                                  
+                                  $y = date('Y', $time);
+                              echo 
+                              "<option>$y</option>";
+                              ?>
+                              
                                 <script>
                                     for (var d = 2022; d >= 1950; d--) {
                                         document.write("<option>" + d + "</option>");

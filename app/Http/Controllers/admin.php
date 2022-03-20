@@ -38,7 +38,7 @@ class admin extends Controller
       if ($result){
         Session::put('AdminName', $result->AdminName);
         Session::put('AdminId', $result->AdminId);
-        $album = DB::table('album')->join('genre', 'album.GenreId', '=', 'genre.GenreId')->get();
+        $album = DB::table('album')->join('genre', 'album.GenreId', '=', 'genre.GenreId')->paginate('5');
         return view('Admin.Album.album-list')->with('album', $album);
       }else {
         echo '<script>alert("Wrong email or password!")</script>';
@@ -263,7 +263,9 @@ class admin extends Controller
     }
     public function listComments(){
       $comment = DB::table('comment')
-      ->join('user', 'comment.UserId', '=', 'user.UserId')->paginate('10');
+      ->join('user', 'comment.UserId', '=', 'user.UserId')
+      ->join('song', 'song.songId', '=', 'comment.SongId')
+      ->paginate('10');
       return view('Admin.Comment.comment-list')->with('comment', $comment);
     }
     public function deleteAlbum($AlbumId){
