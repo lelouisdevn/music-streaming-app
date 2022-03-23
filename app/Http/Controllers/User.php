@@ -25,7 +25,7 @@ class User extends Controller
             return redirect::to('/user/login')->send();
         }
     }
-
+ 
     //Log in form
     public function login(){
         return view('Users.user-login');

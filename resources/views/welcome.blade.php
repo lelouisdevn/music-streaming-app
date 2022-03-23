@@ -96,6 +96,7 @@
                     <li>Who we are</li>
                     <li>Headquarters</li>
                     <li>Services</li>
+                    
                 </ul>
             </div>
             <div class="col-2 foot1">

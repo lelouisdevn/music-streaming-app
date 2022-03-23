@@ -258,13 +258,14 @@ mute.addEventListener('click', function(){
       var pp2 = pp1.querySelector('input').value;
       console.log(pp2);
       
-      currents.play();
+      song = currents;
+      song.play();
       currents_name = pp2;
       playBtn.src = "{{asset('Root-properties/pause.svg')}}";
       controlBar();
       SongName.innerHTML = currents_name;
 
-      currents.addEventListener('ended', function(){
+      song.addEventListener('ended', function(){
         var pp = song.parentElement;
         
         var pp1 = pp.parentElement.nextElementSibling;
@@ -272,7 +273,11 @@ mute.addEventListener('click', function(){
         
         $(pp2).trigger('click');
         currents_name = pp2.querySelector('input').value;
-    })
+
+        controlBar();
+      })
+
+      
     })
     
     
@@ -335,7 +340,10 @@ mute.addEventListener('click', function(){
       song.play();
       console.log(s2);
       // console.log(progress);
-        controlBar();
+      controlBar();
+      currents_name = s4.nextElementSibling.value;
+      console.log(currents_name);
+      SongName.innerHTML = currents_name;
     })
 
     controlBar();

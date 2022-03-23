@@ -36,7 +36,7 @@
 <div class="row content-genre">
     @foreach ($album as $key => $a)
 
-    <div class="col-3" style="margin: 20px w0px 10em 20px; background-color: grey; height: auto;">
+    <div class="col-3" style="margin: 20px w0px 10em 20px; background-color: lightcoral; height: auto;">
       <a href="{{url('user/album/play/'.$a->AlbumId)}}">
         <img src="{{asset('/Uploads/Images/'.$a->AlbumCover)}}" alt="" style="width: 100%;">
         <p style="height: 50px; color: white; font-size: 18px; overflow-y: hidden;">{{$a->AlbumName}}</p>

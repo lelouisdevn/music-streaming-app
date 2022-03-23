@@ -35,7 +35,7 @@
 <body>
     <div class="container-fluid">
         <!-- TITLE BAR -->
-        <div class="row" style="background-color: #232528; height: 5em; line-height: 5em;">
+        <div class="row" style="background-color: #232528; height: 5em; line-height: 5em; position: sticky; top: 0; z-index: 2;">
             <div class="col-2"></div>
             <div class="col-2" style="font-size: 25px; color: white; font-family: Freemono; font-weight: bold;">
                 <a href="{{url('/')}}" style="color: white; text-decoration: none;">
@@ -44,10 +44,9 @@
                 </a>
             </div>
             <div class="col-4 search">
-              <form id="formsearch" class="" action="{{ url('/user/song/search') }}" method="post">
-                {{ csrf_field() }}
-                <div>
-                  <input style="" id="search" type="search" placeholder="Search..." name="keyword"
+              <form id="formsearch" class="" action="{{ url('/user/song/search') }}" method="GET">
+                <div style="display: inline;">
+                  <input type="search" id="search"  placeholder="Search..." name="keyword"
                   autocomplete="off">
                   <div id="livesearch" style="margin-top: -22px;">
 
@@ -55,6 +54,7 @@
                 </div>
 
               </form>
+              
             </div>
             <div class="col-2 items" style="text-align: right;">
                 <ul>
@@ -87,21 +87,21 @@
               <?php
                 $username = Session::get('UserName');
               ?>
-              <div class="" style="margin-bottom: 50px;">
+              <div class="" style="margin-bottom: 50px; position: sticky; top: 110px; ">
                 <?php echo "Hello ".$username.'!' ?>
               </div>
-                <a href="{{url('/play')}}">
+                <a href="{{url('/play')}}" style="position: sticky; top: 190px; ">
                   <div>
                     <i class="fa fa-play">
                       <span style="font-family: sans-serif; "> Play</span>
                     </i>
                   </div>
                 </a>
-                <a href="{{url('/user/profile')}}"><div> <i class="fa fa-user" style="font-size: 19px;">
+                <a href="{{url('/user/profile')}}" style="position: sticky; top: 220px; "><div> <i class="fa fa-user" style="font-size: 19px;">
                   <span style="font-family: sans-serif; "> Profile</span>
                 </i> </div></a>
 
-                <a href="{{url('/user/account')}}">
+                <a href="{{url('/user/account')}}" style="position: sticky; top: 255px; ">
                     <div>
                         <i class="fa fa-cog" style="font-size: 19px;">
                             <span style="font-family: sans-serif; "> Account</span>
@@ -109,17 +109,17 @@
                     </div>
                 </a>
 
-                <a href="{{url('/user/favourite')}}"><div><i class="fa fa-heart">
+                <a href="{{url('/user/favourite')}}" style="position: sticky; top: 286px; "><div><i class="fa fa-heart">
                   <span style="font-family: sans-serif; "> Liked songs</span>
                 </i></div></a>
-                <a href="{{ url('/user/albums') }}">
+                <a href="{{ url('/user/albums') }}" style="position: sticky; top: 320px; ">
                     <div>
                         <i class="fa fa-book">
                             <span style="font-family: sans-serif; "> Liked albums</span>
                         </i>
                     </div>
                 </a>
-                <div style="border-bottom: solid whitesmoke 1px;"></div>
+                <div style="border-bottom: solid whitesmoke 1px; position: sticky; top: 360px; "></div>
                 <!-- <a id="addpl">
                     <div>
                         <i class="fa fa-plus-circle">
@@ -131,7 +131,7 @@
 
                 </a> -->
                 
-                <a href="{{ url('/user/logout') }}"><div><i class="fa fa-sign-out">
+                <a href="{{ url('/user/logout') }}" style="position: sticky; top: 370px; "><div><i class="fa fa-sign-out">
                   <span style="font-family: sans-serif; "> Log out</span>
                 </i></div></a>
             </div>
@@ -209,6 +209,15 @@
     
 </style>
 <script type="text/javascript">
+    
+    $('#search').on('keypress', (e)=>{
+        if (e.which == 13){
+            var query = $('#search').val();
+        console.log(query);
+        window.location.href = "http://localhost:8000/user/song/search=" + encodeURIComponent(query);
+        }
+    })
+
     $('#search').on('mouseover', function(){
         $('input').css('border-radius', '0px');
         $('input').css('transition', '400ms');
@@ -231,11 +240,11 @@
     // o tim kiem co id la search
   $('#search').on('keyup', function(){
     var value = $(this).val();
-    console.log(value)
+    //console.log(value)
     var _token = $('input[name="_token"]').val();
 
         $.ajax({
-        method: "post",
+        method: "get",
         url: "{{ route('search') }}",
         data:{value:value, _token:_token},
         success:function(data){

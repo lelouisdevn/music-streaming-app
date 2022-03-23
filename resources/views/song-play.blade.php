@@ -18,15 +18,15 @@
       <div class="col-2" id="off">
         <h2 class="fa fa-volume-up songs" style="font-size:28px;"></h2>
       </div>
-      <div class="col-2" id="back">
+      <!-- <div class="col-2" id="back">
         <h2 class="fa fa-step-backward"></h2>
-      </div>
+      </div> -->
       <div class="col-2" id="play">
         <h2 class="fa fa-play-circle"></h2>
       </div>
-      <div class="col-2" id="next">
+      <!-- <div class="col-2" id="next">
         <h2 class="fa fa-step-forward"></h2>
-      </div>
+      </div> -->
       <div class="col-2" id="abc" style="margin: auto 0; text-align: center;">
         <input type="hidden" name="" value="{{ $s->SongId }}" id="content-like">
         <?php
@@ -42,9 +42,9 @@
         <?php } ?>
         {{ csrf_field() }}
       </div>
-      <div class="col-2"  id="addplaylist" style="position: relative;">
+      <!-- <div class="col-2"  id="addplaylist" style="position: relative;">
           <h2 class="fa fa-plus-circle"></h2>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

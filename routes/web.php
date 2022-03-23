@@ -15,8 +15,8 @@ Route::get('/', 'Homepage@welcome');
 Route::get('/play', 'User@play');
 
 //search
-Route::any('/search', 'User@search')->name('search');
-Route::post('/user/song/search', 'User@searchSong');
+Route::get('/search', 'User@search')->name('search');
+Route::get('/user/song/search', 'User@searchSong');
 
 
 //Log in - USER
