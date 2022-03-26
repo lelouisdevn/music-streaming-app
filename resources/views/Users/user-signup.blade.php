@@ -57,7 +57,7 @@
                                 </script>
                             </select>
                         </div>
-                        <div class="left">
+                        <div class="left" style="margin-left: 2px;">
                             <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Month</p>
                             <select class="light" name="month" required>
                                 <option value="1">January</option>

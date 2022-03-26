@@ -18,9 +18,9 @@
           <div class="col-3"></div>
           <div class="col-6 formm" style="text-align: center; background-color: white; border-radius: 10px;">
             <div style="text-align: center;">
-              <img src="{{asset('Uploads/User/'.$user->UserAvt)}}" alt="" width="150px">
+              <img src="{{asset('Uploads/User/'.$user->UserAvt)}}" alt="" width="100px">
             </div>
-            <div class="songs">
+            <div class="songs" style="font-size: 30px">
               We need to make sure that you've been authorised to make changes to your account!
               Enter your recieved passcode:
             </div>

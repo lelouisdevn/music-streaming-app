@@ -276,8 +276,6 @@ mute.addEventListener('click', function(){
 
         controlBar();
       })
-
-      
     })
     
     

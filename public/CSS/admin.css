@@ -13,7 +13,7 @@ body {
     width: 75px;
 }
 .avatar .manager {
-    text-align: center;
+    text-align: left;
 }
 a {
     text-decoration: none;
@@ -96,4 +96,20 @@ table tr:first-child {
 
 table tr td {
     border: solid 1px grey;
+}
+
+.left {
+    float: left;
+    width: 15%;
+    background: black;
+    margin-top: 7em;
+    color: white;
+    height: 100%;
+    margin: 0;
+}
+
+.right {
+    margin: 0;
+    float: right;
+    width: 85%;
 }

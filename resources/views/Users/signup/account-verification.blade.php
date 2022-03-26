@@ -18,9 +18,17 @@
 
     <!-- JQuery -->
     <script src="{{asset('JS/jquery-3.6.0.min.js')}}" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
 </head>
+<style>
+    body {
+        background-image: url('/Root-properties/abc.png');
+    }
+</style>
 <body>
-    <div class="full">
+    <!-- <div class="full">
         <form action="{{url('/user/register/complete')}}" method="post">
             {{ csrf_field() }}
             <div class="container" style="margin-top: 120px;">
@@ -31,78 +39,82 @@
                     <div class="tm">Atlanteans</div>
                     <div class="title">Sign up</div>
                     <br>
-                    <!-- <div class="thirdparty-signin">
-                        <div class="google"> <i class="fa fa-google"></i> Sign up with Google</div>
-                        <div class="facebook"><i class="fa fa-facebook"></i> Sign up with Facebook</div>
-                        <div class="phone"><i class="fa fa-phone"></i> Sign up with Phone number</div>
-                    </div>
-                    <div style="color: white; font-weight: bold; margin: 10px;">
-                        OR
-                    </div> -->
                     <div class="username-password">
-                        <!-- <input type="email" placeholder="Email:" name="useremail">
-                        <input type="text" placeholder="Username:" name="username">
-                        <input type="password" placeholder="Password" name="userpassword" id="signuppwd">
-                        <p id="signuppwd1" style="position: absolute; top: 71%"></p> -->
-                        <p style="font-size:25px; color: white;">
                             We just sent you an email containing a verification code. Please put it here to complete registering your account!
                         </p>
                         <input type="password" placeholder="Enter received OTP here:" name="signupotp">
                     </div>
-                    <!-- <div class="container-signup">
-                        <div class="left">
-                            <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Day</p>
-                            <select name="day" id="">
-                                <script language="javascript" type="text/javascript">
-                                    for (var d = 1; d <= 31; d++) {
-                                        document.write("<option>" + d + "</option>");
-                                    }
-                                </script>
-                            </select>
-                        </div>
-                        <div class="left">
-                            <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Month</p>
-                            <select class="light" name="month" required>
-                                <option value="1">Tháng 1</option>
-                                <option value="2">Tháng 2</option>
-                                <option value="3">Tháng 3</option>
-                                <option value="4">Tháng 4</option>
-                                <option value="5">Tháng 5</option>
-                                <option value="6">Tháng 6</option>
-                                <option value="7">Tháng 7</option>
-                                <option value="8">Tháng 8</option>
-                                <option value="9">Tháng 9</option>
-                                <option value="10">Tháng 10</option>
-                                <option value="11">Tháng 11</option>
-                                <option value="12">Tháng 12</option>
-                            </select>
-                        </div> -->
-                        <!-- <div class="left">
-                            <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Year</p>
-                            <select name="year" required>
-                                <script>
-                                    for (var d = 2022; d >= 1950; d--) {
-                                        document.write("<option>" + d + "</option>");
-                                    }
-                                </script>
-                            </select>
-                        </div>
-                    </div> -->
                 </div>
                 <button class="btn-login" type="submit">
                     Verify
                 </button>
             </div>
         </form>
+    </div> -->
+
+    <div id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header text-center d-block">
+            <!-- <button type="button" name="button" class="close" data-dismiss="modal" style="position: absolute; right: 5%;">&times;</button> -->
+                <div class="logo" style="text-align: center;">
+                    <a href="{{url('/')}}"><img src="{{asset('Root-properties/atlanteans-musique.png')}}" style="width: 75px; border-radius: 50%;" alt=""></a>
+                </div>
+                <div class="tm" style="color: black;">Atlanteans</div>
+                <div class="title" style="color: black; font-family: freemono;">OTP Verification</div>
+          </div>
+
+          <!-- Modal body -->
+        <div class="modal-body">
+            <form action="{{url('/user/register/complete')}}" method="POST">
+                {{ csrf_field() }}
+            <div class="form-group" id="field">
+                <label for="" id="labeli">Passcode:</label>
+                <input id="email-rspwd" type="text" name="signupotp" value="" class="form-control" placeholder="Enter passcode:...">
+            </div>
+              <div class="form-group">
+                <button id="fgpwd" type="submit" name="button" class="btn btn-success btn-block" style="background-color: #223d92;">Verify</button>
+              </div>
+              <p id="sending" class="form-group"></p>
+          </div>
+          <div class="modal-footer">
+            <a href="{{url('/')}}" class="btn btn-danger mr-auto" data-dismiss="modal">
+              <i class="fa fa-times"> Cancel</i>
+            </a>
+            <div class="text-right">
+
+            </div>
+          </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+        2022 &copy; Atlanteans . Designed by Ngô Trần Vĩnh Thái.
     </div>
 </body>
+
+<style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+        padding: 20px 0;
+        text-align: center;
+        background: black;
+        color: white;
+        width: 100%;
+    }
+</style>
+
 <script>
     $('#signuppwd').on('keyup', function(){
         var value = $(this).val().length;
         if (value < 8){
             $('#signuppwd1').html('Weak password!').css('color', 'yellow');
         }else{
-            $('#signuppwd1').html('Strong password!').css('color', 'blue');
+            $('#signuppwd1').html('');
         }
     })
 

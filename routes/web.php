@@ -22,6 +22,7 @@ Route::get('/user/song/search', 'User@searchSong');
 //Log in - USER
 Route::get('/user/login', 'User@login');
 Route::post('/user/login/authenticate', 'User@authenticate');
+Route::any('/user/whoisthis', 'User@prelog')->name('prelogin');
 // Sign up - USER
 Route::get('/user/signup', 'User@signup');
 Route::post('/user/register', 'User@register');
@@ -48,7 +49,7 @@ Route::any('/user/pwd/resetwithemail', 'User@resetWithEmailf')->name('resetWithE
 
 //Admin -login & signup & log out
 Route::get('/admin/login', 'admin@login');
-Route::post('/admin/login/authenticate', 'admin@authenticate');
+Route::get('/admin/login/authenticate', 'admin@authenticate');
 Route::get('/admin/logout', 'admin@logout');
 
 //Genre

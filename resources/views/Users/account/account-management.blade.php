@@ -18,7 +18,7 @@
           <div class="col-3"></div>
           <div class="col-6 formm" style="text-align: center; background-color: white; border-radius: 10px; padding-bottom: 10px;">
             <div style="text-align: center;">
-              <img src="{{asset('Uploads/User/'.$user->UserAvt)}}" alt="" width="150px">
+              <img src="{{asset('Uploads/User/'.$user->UserAvt)}}" alt="" width="100px">
             </div>
             <div class="songs" style="text-align: center;">
               Verification completed!

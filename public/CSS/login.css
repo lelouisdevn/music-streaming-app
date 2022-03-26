@@ -134,14 +134,13 @@ body {
 
 .container-signup {
     width: 100%;
-    color: white;
+    color: black;
     overflow: auto;
 }
 
 .container-signup .left {
     float: left;
-    width: 32%;
-    margin-right: 11.3px;
+    width: 33%;
 }
 .container-signup .left:last-child {
     float: right;
@@ -152,7 +151,7 @@ body {
     width: 100%;
     border-radius: 5px;
     height: 35px;
-    border: solid black 1px;
+    border: solid lightgrey 1px;
     background-color: white;
 }
 

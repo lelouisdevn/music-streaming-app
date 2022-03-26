@@ -19,7 +19,7 @@
             <td style="width: 30%;">{{ $c->CommentContent }}</td>
             <td>{{ $c->CommentTime }}</td>
             <td>
-                <a href="{{url('/admin/comment/delete/'.$c->CommentId)}}" onclick="return confirm('Are you sure you want to delete this comment?')">
+                <a href="{{url('/admin/comment/delete/'.$c->CommentId)}}">
                     <i class="fa fa-trash" style="color: crimson; font-size: 20px;"></i>
                 </a>
             </td>

@@ -1,15 +1,25 @@
 @extends('play')
 @section('playContent')
 
-<div class="row">
-    <div class="col-12" style="font-size: 25px; color: white;
-    font-weight: bold; margin: 10px;">
+<?php
+  $Song = json_decode($Song);
+  foreach ((array) $Song as $key => $value) {
+    # code...
+    if ($value->SongName){
+      echo '
+      <div class="row">
+      <div class="col-12" style="font-size: 25px; color: white; font-weight: bold; margin: 10px;">
         Currently played
-    </div>
-</div>
+      </div>
+      </div>
+      ';
+
+      break;
+    }
+  }
+?>
 <div class="row">
   <?php 
-    $Song = json_decode($Song);
     foreach ((array) $Song as $s) {
   ?>
     
@@ -29,12 +39,22 @@
     }
   ?>
 </div>
-<div class="row">
-    <div class="col-12" style="font-size: 25px; color: white;
-    font-weight: bold; margin: 10px;">
-        Albums
-    </div>
-</div>
+
+        <?php 
+          foreach ($album as $key => $value) {
+            # code...
+            if ($value->AlbumName){
+              echo '
+              <div class="row">
+              <div class="col-12" style="font-size: 25px; color: white;
+              font-weight: bold; margin: 10px;">Albums
+              </div>
+              </div>
+              ';
+              break;
+            }
+          }
+        ?>
 <div class="row content-genre">
       @foreach ($album as $key => $a)
 

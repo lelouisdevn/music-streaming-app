@@ -1,11 +1,11 @@
 @extends('play')
 @section('playContent')
 
-<div class="row profile" style="height: 170px;">
+<div class="row profile" style="height: 130px;">
           <div class="col-10 songs" style="font-size: 35px;">Profile</div>
           <div class="col-2 songs" style="font-size: 35px;">
-            <div class="fa fa-cog parent" style="margin: 0;">
-              <div class="child">
+            <div class="fa fa-cog parent" style="margin: 0; z-index: 1">
+              <div class="child" style="border: solid black 1px;">
                 <p><a href="{{url('/user/account/')}}">Change password</a></p>
                 <p><a href="{{url('/user/account/')}}">Delete account</a></p>
                 <p><a href="{{url('/user/logout')}}">Log out</a></p>
@@ -21,8 +21,7 @@
                 {{ csrf_field() }}
               @foreach ($user as $key => $u)
 
-              <img id="fdialog" src="{{asset('Uploads/User/'.$u->UserAvt)}}" 
-              alt="" width="150px" height="150px">
+              <img id="fdialog" src="{{asset('Uploads/User/'.$u->UserAvt)}}" alt="" width="70px">
 
             </div>
 
@@ -149,17 +148,8 @@
         </div>
 
         <style>
-          #fdialog:hover {
-            /* background-image: url('Root-properties/camera.png'); */
-            width: 300px;
-            border-radius: 0;
-            height: 300px;
-            transition: 400ms;
-          }
-
           #fdialog{
-            width: 150px;
-            height: 150px;
+            width: 100px;
             transition: 400ms;
           }
         </style>

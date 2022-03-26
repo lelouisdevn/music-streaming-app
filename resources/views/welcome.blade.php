@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="{{asset('/CSS/login.css')}}">
 
     <!-- Title image -->
-    <link rel="shortcut icon" href="{{asset('Root-properties/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('Root-properties/favicon.png')}}" type="image/x-icon">    
+    <script src="{{asset('JS/jquery-3.6.0.min.js')}}" charset="utf-8"></script>
+
 </head>
 <body>
     <div class="container-fluid" style="position: relative;">
@@ -42,8 +44,9 @@
                     <?php
                         }else{
                     ?>
-                        <a href="{{url('/user/login')}}">
-                          <li>Sign in</li></a>
+                        <!-- <a href="{{url('/user/login')}}">
+                          <li>Sign in</li></a> -->
+                          <a style="cursor: pointer" data-toggle="modal" data-target="#myModal"><li>Sign in</li></a>
                     <?php
                         }
                     ?>
@@ -53,7 +56,8 @@
                     ?>
                     <!-- <a href="{{url('/user/signup')}}"><li>Sign up</li></a> -->
                         <?php }else{ ?>
-                            <a href="{{url('/user/signup')}}"><li>Sign up</li></a>
+                            <!-- <a href="{{url('/user/signup')}}"><li>Sign up</li></a> -->
+                            <a style="cursor: pointer;" data-target="#modal-signup" data-toggle="modal"><li>Sign up</li></a>
                     <?php } ?>
                     <a href="{{url('/user/support')}}"><li>Support</li></a>
                 </ul>
@@ -73,11 +77,23 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="col-3">
+                        <?php 
+                            if (Session::get('UserId')){
+                        ?>
                         <a href="{{url('/play')}}" style="text-decoration: none;">
                             <div class="btn-play">
                                 PLAY
                             </div>
                         </a>
+                        <?php
+                            }else{
+                        ?>
+                        <a data-target="#myModal" data-toggle="modal">
+                            <div class="btn-play">
+                                PLAY
+                            </div>
+                        </a>
+                        <?php } ?>
                     </div>
                     <div class="col"></div>
                 </div>
@@ -132,15 +148,253 @@
                 <?php
                     }else {
                 ?>
-                    <a href="{{url('/user/login')}}">Sign in</a>
+                    <!-- <a href="{{url('/user/login')}}">Sign in</a> -->
+                    <a style="color: grey; cursor: pointer;" data-toggle="modal" data-target="#myModal">Sign in</a>
                 <?php
                     }
                 ?>
             </div>
-            <div class="col-4" style="text-align: right;">2022&copy;Atlanteans . Designed by Ngô Trần Vĩnh Thái.</div>
+            <div class="col-4" style="text-align: right;">2022 &copy; Atlanteans . Designed by Ngô Trần Vĩnh Thái.</div>
             <div class="col-2"></div>
         </div>
     </div>
 
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header text-center d-block">
+            <button type="button" name="button" class="close" data-dismiss="modal" style="position: absolute; right: 5%;">&times;</button>
+                <div class="logo" style="text-align: center;">
+                    <a href="{{url('/')}}"><img src="{{asset('Root-properties/atlanteans-musique.png')}}" style="width: 75px; border-radius: 50%;" alt=""></a>
+                </div>
+                <div class="tm" style="color: black;">Atlanteans</div>
+                <div class="title" style="color: black; font-family: freemono;">Log in</div>
+          </div>
+
+          <!-- Modal body -->
+        <div class="modal-body">
+            <form>
+            <div class="form-group" id="loginpwd1">
+                
+            </div>
+            <div class="form-group">
+                <label for="">Email:</label>
+                <input id="lgine" type="text" name="email" value="" class="form-control" placeholder="Enter email:...">
+            </div>
+
+            <div class="form-group">
+                <label for="">Password:</label>
+                <input id="lginpwd" type="password" name="password" value="" class="form-control" placeholder="Enter password:...">
+            </div>
+<!-- 
+              <div class="form-group form-check">
+                <input type="checkbox" name="" value="" class="form-check-input">
+                <label class="form-check-label">Ghi nhớ tôi</label>
+              </div> -->
+
+              <div class="form-group">
+                <a id="lgin" name="button" class="btn btn-success btn-block" style="background-color: #223d92;">Log in</a>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger mr-auto" data-dismiss="modal">
+              <i class="fa fa-times"> Cancel</i>
+            </button>
+            <div class="text-right">
+              <!-- <div>Bạn chưa phải là thành viên? <a href="#">Đăng ký</a></div> -->
+                <div>
+                    Haven't registed one yet? Create <a style="color: black;" href="{{url('user/signup')}}">here!</a>
+                </div>
+              <div>Forgot <a href="{{ url('user/forgotPassword') }}"">password?</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- #signup -->
+    <div class="modal fade" id="modal-signup">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header text-center d-block">
+            <button type="button" name="button" class="close" data-dismiss="modal" style="position: absolute; right: 5%;">&times;</button>
+                <div class="logo" style="text-align: center;">
+                    <a href="{{url('/')}}"><img src="{{asset('Root-properties/atlanteans-musique.png')}}" style="width: 75px; border-radius: 50%;" alt=""></a>
+                </div>
+                <div class="tm" style="color: black;">Atlanteans</div>
+                <div class="title" style="color: black; font-family: freemono;">Sign up</div>
+          </div>
+
+          <!-- Modal body -->
+        <div class="modal-body">
+            <form class="" action="{{url('/user/register')}}" method="post">
+                {{ csrf_field() }}
+            <div class="form-group">
+                <label for="">Email:</label>
+                <input type="text" name="useremail" value="" class="form-control" placeholder="Enter email:..." id="signupemail">
+            </div>
+            <div class="form-group">
+                <label for="">Username:</label>
+                <input type="text" name="username" value="" class="form-control" placeholder="Enter username:..." id="signupname">
+            </div>
+            <div class="form-group">
+                <label for="">Password:</label>
+                <input type="password" name="userpassword" value="" class="form-control" placeholder="Enter password:..." id="signuppwd">
+            </div>
+<!-- 
+              <div class="form-group form-check">
+                <input type="checkbox" name="" value="" class="form-check-input">
+                <label class="form-check-label">Ghi nhớ tôi</label>
+              </div> -->
+              <div class="form-group" id="signuppwd1">
+                
+              </div>
+              <div class="container-signup form-group">
+                        <div class="left">
+                            <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Day</p>
+                            <select name="day" id="day">
+                                <script language="javascript" type="text/javascript">
+                                    var month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                                    for (var d = 1; d <= 31; d++) {
+                                        document.write("<option>" + d + "</option>");
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                        <div class="left" style="margin-left:2px;">
+                            <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Month</p>
+                            <select class="light" name="month" id="month" required>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="left">
+                            <p style="text-align: left; font-size: 18px; margin-bottom: 5px;">Year</p>
+                            <select name="year" id="year" required>
+                                <script>
+                                    for (var d = 2022; d >= 1950; d--) {
+                                        document.write("<option>" + d + "</option>");
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                </div>
+              <div class="form-group">
+                <button type="submit" id="signupbtn" name="button" class="btn btn-success btn-block" style="background-color: #223d92;">Sign up</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger mr-auto" data-dismiss="modal">
+              <i class="fa fa-times"> Cancel</i>
+            </button>
+            <!-- <div class="text-right">
+                <div>
+                    Haven't registed one yet? Create <a style="color: black;" href="{{url('user/signup')}}">here!</a>
+                </div>
+              <div>Quên <a href="{{ url('user/forgotPassword') }}"">mật khẩu?</a></div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
+
+<script>
+
+    $("#signupbtn").on('click', function(){
+        var email = $('#signupemail').val();
+        var name = $('#signupname').val();
+        var passwd = $('#signuppwd').val();
+        var day = $('#day');
+        var month = $('#month');
+        var year = $('#year');
+
+        console.log(day);
+    });
+    var er_email;
+    var count;
+    $('#signupemail').on('keyup', function(){
+        var email = $(this).val();
+        var a = email.indexOf('@');
+        // console.log(a);
+        var b = email.indexOf('@', a+1);
+        // console.log(b);
+        var special = ['!', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '='];
+        for (var i = 0; i < special.length; i++){
+            if (email.includes(special[i]) || email.indexOf('@')==0 || !email.includes('@') || b != -1){
+                er_email = 0;
+                break;
+            }else {
+                er_email = 1;
+            }
+        }
+            if (er_email==0){
+                $('#signuppwd1').html('Undefined email format!').css('color', 'darkred');
+                $('#signupemail').css('border', 'red solid 2px');
+            }else {
+                $('#signuppwd1').html('').css('color', 'blue');
+                $('#signupemail').css('border', 'lightgrey solid 1px');
+                er_email = 1;
+            }    
+    })
+    $('#signuppwd').on('keyup', function(){
+        var value = $(this).val().length;
+        if (value < 8){
+            $('#signuppwd1').html('Weak password!').css('color', 'darkred');
+        }else{
+            $('#signuppwd1').html('');
+        }
+    })
+    $('#signuppwd').on("blur", function(){
+        $('#signuppwd1').html('');
+    })
+    $('#sub').on('click', function(){
+        var name = $('#signupname').val()
+        var email = $('#signupemail').val();
+        var pwd = $('#signuppwd').val();
+        if (name != null && email != null && pwd != null && er_email == 1){
+            $('#formsignup').submit();
+        }else alert('Fields cannot be null');
+        console.log(name)
+    })
+
+    $('#lgin').on('click', function(){
+        var email = $("#lgine").val();
+        var passwd = $("#lginpwd").val();
+        console.log(email);
+       
+        $.ajax({
+            method: "POST",
+            url: "{{ route('prelogin') }}",
+            data: {email:email, passwd:passwd, _token: "{!! csrf_token() !!}"},
+            success:function(data){
+                if (data.indexOf('user') >= 0 ){
+                    $('#loginpwd1').html("We're signing you in....");
+                    window.location.replace('/play');
+                }else if (data.indexOf('admin') >= 0){
+                    $('#loginpwd1').html("We're signing you in....");
+                    window.location.replace('admin/list-albums');
+                }else {
+                    $('#loginpwd1').html(data);
+                }
+            }
+        })
+    });
+
+</script>
 </html>

@@ -14,6 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    
+
     <!-- Css - HOMEPAGE -->
     <link rel="stylesheet" href="{{asset('CSS/homepage.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin.css')}}">
@@ -42,19 +44,23 @@
         <div class="row" style="background-color: #004d90;">
             <div class="col-2"></div>
             <div class="col-2 avatar" style="text-align: center; background-color: #004d90;">
-                <div style="margin-top: 2em;"><img src="{{asset('Root-properties/user.png')}}" alt="admin avt"></div>
-                <?php
-                  $name = Session::get('AdminName');
-                ?>
-                <div style="color: white; margin-bottom: 7em;">{{ $name }}</div>
-
-                <div class="manager">
-                    <a href="{{url('/admin/list-albums')}}"><div>Album management</div></a>
-                    <a href="{{url('/admin/list-songs')}}"><div>Song management</div></a>
-                    <a href="{{url('/admin/list-genres')}}"><div>Genre management</div></a>
-                    <a href="{{url('/admin/list-comments')}}"><div>Comment management</div></a>
-                    <a href="{{url('/admin/list-members')}}"><div>Member management</div></a>
-                    <a href="{{ url('/admin/logout') }}" ><div style="border-top: solid white 2px;">Log out</div></a>
+                <div class="left">
+                    <div class="manager">
+                        <a href="{{url('/admin/list-albums')}}"><div></div></a>
+                        <a href="{{url('/admin/list-songs')}}"><div></div></a>
+                        <a href="{{url('/admin/list-genres')}}"><div></div></a>
+                        <a href="{{url('/admin/list-comments')}}"><div></div></a>
+                        <a href="{{url('/admin/list-members')}}"><div></div></a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="manager">
+                        <a href="{{url('/admin/list-albums')}}"><div>Album management</div></a>
+                        <a href="{{url('/admin/list-songs')}}"><div>Song management</div></a>
+                        <a href="{{url('/admin/list-genres')}}"><div>Genre management</div></a>
+                        <a href="{{url('/admin/list-comments')}}"><div>Comment management</div></a>
+                        <a href="{{url('/admin/list-members')}}"><div>Member management</div></a>
+                    </div>
                 </div>
             </div>
             <div class="col-6 avatar content-admin" style="background-color: whitesmoke;">

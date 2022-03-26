@@ -281,6 +281,6 @@ class admin extends Controller
     public function logout(){
       Session::put('AdminName', null);
       Session::put('AdminId', null);
-      return redirect::to('/admin/login');
+      return redirect::to('/');
     }
 }

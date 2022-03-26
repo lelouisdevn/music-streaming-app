@@ -30,8 +30,31 @@ class User extends Controller
     public function login(){
         return view('Users.user-login');
     }
-    public function authenticate(Request $request){
+    public function prelog(Request $request){
       sleep(2);
+        $email = $request->get('email');
+        $password = $request->get('passwd');
+
+        $hasExistedAccount = DB::table('user')->where('UserEmail', $email)->first();
+        $result = DB::table('user')->where('UserPassword', $password)->where('UserEmail', $email)->first();
+        if ($hasExistedAccount){
+          if($result && $hasExistedAccount->IsAdmin == 0){
+            Session::put('UserName', $result->UserName);
+            Session::put('UserId', $result->UserId);
+            echo "user";
+          }else if($result && $hasExistedAccount->IsAdmin == 1){
+            Session::put('AdminId', $result->UserId);
+            Session::put('AdminName', $result->UserName);
+            echo "admin";
+          }else {
+            echo "Wrong username or password!";
+          }
+        }else {
+          echo "This account does not exist!";
+        }
+    }
+    public function authenticate(Request $request){
+      sleep(1);
         $email = $request->email;
         $password = $request->password;
 
@@ -45,11 +68,11 @@ class User extends Controller
             return redirect::to('/play');
           }else {
             echo "<script>alert('Wrong password or username!')</script>";
-            return view('Users.user-login');
+            return view('welcome');
         }
         }else {
           echo "<script>alert('This account does not exist!')</script>";
-          return view('Users.user-login');
+          return view('welcome');
         }
 
     }
@@ -92,7 +115,6 @@ class User extends Controller
           echo "<script>alert('This email has already existed, please try another one!')</script>";
           return view('Users.user-signup');
         }
-
     }
     public function registerComplete(Request $request){
       sleep(2);
@@ -435,15 +457,15 @@ class User extends Controller
       $UserEmail = $result->UserEmail;
       if ($result->UserEmail == $email){
         $OTP = rand(10000,99999);
-        // $data['UserOTP'] = $OTP;
-        // DB::table('user')->where('UserId', $UserId)->update($data);
+        $data['UserOTP'] = $OTP;
+        DB::table('user')->where('UserId', $UserId)->update($data);
         Session::put('OTP', $OTP);
-        $dataMail = array('name'=>$UserName, 'OTP'=>$OTP);
-        Mail::send('Users.account.mail-send-otp', $dataMail, function($message)
-        use($email, $UserName){
-          $message->to($email, $UserName)->subject('Account verification!');
-          $message->from('atlanteansvietnam@outlook.com', 'Atlanteans');
-        });
+        // $dataMail = array('name'=>$UserName, 'OTP'=>$OTP);
+        // Mail::send('Users.account.mail-send-otp', $dataMail, function($message)
+        // use($email, $UserName){
+        //   $message->to($email, $UserName)->subject('Account verification!');
+        //   $message->from('atlanteansvietnam@outlook.com', 'Atlanteans');
+        // });
         return view('Users.account.checkotp')->with('user', $user);
       }else {
         echo "<script>alert('This email is invalid!')</script>";
@@ -516,13 +538,13 @@ class User extends Controller
         DB::table('user')->where('UserId', Session::get('userid'))
         ->update($nData);
 
-        $UserName = $userData->UserName;
-        $dataMail = array('OTP'=>$OTP);
-        Mail::send('Users.account.password.otp', $dataMail, function($message)
-        use($email, $UserName){
-          $message->to($email, $UserName)->subject('Reset password request!');
-          $message->from('atlanteansvietnam@outlook.com', 'Atlanteans');
-        });
+        // $UserName = $userData->UserName;
+        // $dataMail = array('OTP'=>$OTP);
+        // Mail::send('Users.account.password.otp', $dataMail, function($message)
+        // use($email, $UserName){
+        //   $message->to($email, $UserName)->subject('Reset password request!');
+        //   $message->from('atlanteansvietnam@outlook.com', 'Atlanteans');
+        // });
 
       }else if(Session::get('status') == NULL && Session::get('userid') != NULL && str_contains($email, '@') == false && strlen($email) > 0) {
         $UserId = Session::get('userid');

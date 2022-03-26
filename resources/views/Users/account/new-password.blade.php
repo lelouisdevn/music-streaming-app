@@ -18,7 +18,7 @@
           <div class="col-3"></div>
           <div class="col-6 formm" style="text-align: center;">
             <div style="text-align: center;">
-              <img src="{{asset('Uploads/User/'.$user->UserAvt)}}" alt="" width="150px">
+              <img src="{{asset('Uploads/User/'.$user->UserAvt)}}" alt="" width="100px">
             </div>
             <div class="songs" style="text-align: center;">
               Change account password!
