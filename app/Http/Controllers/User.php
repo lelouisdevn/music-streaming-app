@@ -529,15 +529,17 @@ class User extends Controller
 
         Session::put('userid', $userData->UserId);
       }
-      if (Session::get('userid') != NULL && str_contains($email, '@') == true){
-        $OTP = rand(10000, 99999);
+      if (str_contains($email, '@') == true){
+        $userData = DB::table('user')->where('UserEmail', $email)->first();
+        Session::put('userid', $userData->UserId);
 
+        $OTP = rand(10000, 99999);
         $nData = array();
         $nData['UserOTP'] = $OTP;
 
         DB::table('user')->where('UserId', Session::get('userid'))
         ->update($nData);
-
+        Session::put('status', NULL);
         // $UserName = $userData->UserName;
         // $dataMail = array('OTP'=>$OTP);
         // Mail::send('Users.account.password.otp', $dataMail, function($message)
@@ -546,7 +548,7 @@ class User extends Controller
         //   $message->from('atlanteansvietnam@outlook.com', 'Atlanteans');
         // });
 
-      }else if(Session::get('status') == NULL && Session::get('userid') != NULL && str_contains($email, '@') == false && strlen($email) > 0) {
+      }else if(Session::get('status') == null && Session::get('userid') != NULL && str_contains($email, '@') == false && strlen($email) > 0) {
         $UserId = Session::get('userid');
         $OTP = DB::table('user')
         ->where('UserId', $UserId)->first();
@@ -555,10 +557,9 @@ class User extends Controller
           $dt = array();
           $dt['UserOTP'] = NULL;
           DB::table('user')->where('UserId', $UserId)->update($dt);
-
           Session::put('status', 1);
         }else {
-          echo "<p style='margin: 0'>Unmatched OTP!</p>";
+          echo "Unmatched OTP!";
         }
       }
       else if (Session::get('status') == 1){

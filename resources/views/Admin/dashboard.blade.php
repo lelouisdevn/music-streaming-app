@@ -44,16 +44,6 @@
         <div class="row" style="background-color: #004d90;">
             <div class="col-2"></div>
             <div class="col-2 avatar" style="text-align: center; background-color: #004d90;">
-                <div class="left">
-                    <div class="manager">
-                        <a href="{{url('/admin/list-albums')}}"><div></div></a>
-                        <a href="{{url('/admin/list-songs')}}"><div></div></a>
-                        <a href="{{url('/admin/list-genres')}}"><div></div></a>
-                        <a href="{{url('/admin/list-comments')}}"><div></div></a>
-                        <a href="{{url('/admin/list-members')}}"><div></div></a>
-                    </div>
-                </div>
-                <div class="right">
                     <div class="manager">
                         <a href="{{url('/admin/list-albums')}}"><div>Album management</div></a>
                         <a href="{{url('/admin/list-songs')}}"><div>Song management</div></a>
@@ -61,7 +51,6 @@
                         <a href="{{url('/admin/list-comments')}}"><div>Comment management</div></a>
                         <a href="{{url('/admin/list-members')}}"><div>Member management</div></a>
                     </div>
-                </div>
             </div>
             <div class="col-6 avatar content-admin" style="background-color: whitesmoke;">
 

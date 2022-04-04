@@ -64,7 +64,8 @@
 <div class="row song-genre">
   <div class="col-6 audio-play">
     <audio class="src" src="{{asset('Uploads/Musics/'.$s->SongSource)}}"></audio>
-    <p class="names">{{ $s->SongName }}</p>
+    <!-- <p class="names">{{ $s->SongName }}</p>  -->
+    <a class="names" style="color: black;" href="{{url('user/songs/play/'.$s->SongId)}}">{{ $s->SongName }}</a>
   </div>
   <div class="col-3">
     {{ $s->SongArtist }}

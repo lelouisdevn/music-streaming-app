@@ -75,12 +75,23 @@
 </div>
 <div class="row content-genre">
     @foreach ($genre as $key => $g)
-    <div class="col-3" style="background-image: url('Uploads/Images/{{ $g->GenreCover }}');">
+    <div class="col-3 agenre" style="cursor: pointer; background-image: url('Uploads/Images/{{ $g->GenreCover }}');">
         <a href="{{url('genre-songs/show/'.$g->GenreId)}}" style="color: white; text-decoration: none;">{{ $g->GenreName }}</a>
+        <input type="hidden" value="{{ $g->GenreId }}">
     </div>
     @endforeach
 
     <!-- <div class="col-3">indie</div> -->
 </div>
+
+<script>
+  $('.agenre').on('click', function(){
+    var genrename = $(this).find('input').val();
+    setTimeout(function(){
+      //do something special
+      window.location.replace('/genre-songs/show/' + genrename);
+    }, 1000);
+  });
+</script>
 
 @endsection
